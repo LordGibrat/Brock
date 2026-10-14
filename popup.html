@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Brock</title>
+    <link rel="stylesheet" href="popup.css">
+    <script src="popup.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <header class="topbar">
+        <div class="identity"><span class="mark">B</span><span>Brock</span></div>
+        <span class="local-pill"><span class="local-dot"></span> Local only</span>
+      </header>
+
+      <nav class="tabs" role="tablist" aria-label="Brock sections">
+        <button id="results-tab" type="button" role="tab" aria-selected="true" aria-controls="results-panel">Results</button>
+        <button id="settings-tab" type="button" role="tab" aria-selected="false" aria-controls="settings-panel">Settings</button>
+      </nav>
+
+      <div id="results-panel" role="tabpanel" aria-labelledby="results-tab">
+        <section class="results-intro">
+          <div class="eyebrow">WHAT HAPPENED</div>
+          <h1>Your browsing<br>in focus<span>.</span></h1>
+          <p>Each result covers the 20 minutes after you opened a watched site.</p>
+        </section>
+
+        <div id="setup-cta" class="setup-cta" hidden>
+          <strong>Start with a site</strong>
+          <span>Add a site you want to use more intentionally.</span>
+          <button type="button" id="go-settings">Set up Brock</button>
+        </div>
+
+        <section id="active-window" class="active-window" aria-label="Current observation" hidden>
+          <div class="active-indicator"></div>
+          <div><strong>In progress</strong><p id="active-detail"></p></div>
+          <span id="active-timer"></span>
+        </section>
+
+        <section class="section results-section">
+          <div class="section-title"><h2>Outcomes</h2><span id="history-count" class="count">0 windows</span></div>
+          <div class="metrics outcome-metrics">
+            <div class="metric-success"><strong id="success-count">0</strong><span>Successes</span></div>
+            <div class="metric-miss"><strong id="miss-count">0</strong><span>Goals not met</span></div>
+            <div><strong id="comparison-count">0</strong><span>Comparisons</span></div>
+          </div>
+          <p class="result-rule"><strong>Success:</strong> no more than 2 minutes across watched sites, and no move to another watched site in the 20-minute window.</p>
+        </section>
+
+        <section class="section history-section">
+          <div class="section-title"><h2>Window history</h2><span class="period">Newest first</span></div>
+          <div class="filters" role="group" aria-label="Filter window history">
+            <button type="button" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" data-filter="success" aria-pressed="false">Success</button>
+            <button type="button" data-filter="miss" aria-pressed="false">Not met</button>
+            <button type="button" data-filter="observe" aria-pressed="false">Comparison</button>
+          </div>
+          <div id="history-list" class="history-list"></div>
+          <button type="button" id="more-results" class="more-results" hidden>Show more</button>
+        </section>
+
+        <section class="section insights-section">
+          <div class="section-title"><h2>Watched time</h2><span class="period">Last 7 days</span></div>
+          <div id="chart" class="chart" aria-label="Watched site use in the last seven days"></div>
+          <p id="insight" class="insight">Your first results will appear after a 20-minute window.</p>
+        </section>
+        <footer><button id="export" type="button">Export my data</button></footer>
+      </div>
+
+      <div id="settings-panel" role="tabpanel" aria-labelledby="settings-tab" hidden>
+
+      <section class="hero">
+        <div class="eyebrow">YOUR BROWSING, YOUR CHOICE</div>
+        <h1>Make room<br>for intention<span>.</span></h1>
+        <p>Brock helps you notice unwanted browsing loops and learns which pause helps you most.</p>
+        <label class="power-row" for="enabled">
+          <span><strong>Protection</strong><small id="power-description">Paused</small></span>
+          <input type="checkbox" id="enabled" role="switch" aria-label="Enable Brock">
+          <span class="switch" aria-hidden="true"></span>
+        </label>
+      </section>
+
+      <section class="section sites-section">
+        <div class="section-title"><h2>Sites to watch</h2><span id="site-count" class="count">0 sites</span></div>
+        <p class="hint">Add sites you tend to open without meaning to. Subdomains are included.</p>
+        <form id="site-form" class="add-row">
+          <input id="site-input" type="text" inputmode="url" placeholder="e.g. youtube.com" aria-label="Site domain" autocomplete="off" required>
+          <button type="submit" class="add-button">Add</button>
+        </form>
+        <p id="site-error" class="error" role="alert"></p>
+        <div id="site-list" class="chips"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-title"><h2>Your alternative</h2></div>
+        <p class="hint">Brock may suggest this when you enter a watched site.</p>
+        <textarea id="alternative" maxlength="160" rows="2" aria-label="Alternative activity" placeholder="Take a short walk or return to your plan."></textarea>
+      </section>
+
+      <section class="section method-section">
+        <label class="check-row" for="comparison">
+          <input type="checkbox" id="comparison">
+          <span><strong>Include comparison visits</strong><small>On about 20% of visits, Brock quietly observes what happens without a prompt. This helps compare outcomes.</small></span>
+        </label>
+      </section>
+
+      <footer>
+        <button id="clear" type="button">Clear activity data</button>
+      </footer>
+      </div>
+    </main>
+  </body>
+</html>

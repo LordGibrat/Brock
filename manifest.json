@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Brock",
+  "version": "0.2.0",
+  "description": "A local-first experiment in breaking unwanted browsing loops.",
+  "permissions": ["storage", "alarms"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "background": { "service_worker": "background.js" },
+  "action": { "default_title": "Open Brock", "default_popup": "popup.html" },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

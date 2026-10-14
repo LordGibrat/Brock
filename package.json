@@ -1,0 +1,12 @@
+{
+  "name": "brock-browser-extension",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Local-first browser extension for intentional browsing",
+  "scripts": {
+    "test:e2e": "node tests/extension.test.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}
