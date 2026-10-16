@@ -1,6 +1,10 @@
-# Brock — version 2
+# Brock
 
-Project owner: [LordGibrat](https://github.com/LordGibrat). Built with Codex assistance.
+**A local browser extension for understanding distracting browsing loops.**
+
+[Install](#install) · [How it works](#how-the-prototype-learns) · [Development](#development-and-verification)
+
+Maintained by [LordGibrat](https://github.com/LordGibrat), with Codex assistance. Current prototype: version 2.
 
 Brock is a local-only Chrome/Chromium extension prototype for studying unwanted browsing loops. It gives you a pause, asks for your purpose, or suggests an alternative when you open a site you chose to watch. It then observes the next 20 minutes across **all** watched sites, so switching from one distracting site to another is visible in the result.
 
